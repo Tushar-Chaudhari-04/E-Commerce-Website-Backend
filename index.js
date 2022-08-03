@@ -3,6 +3,7 @@ const mongoose=require("mongoose");
 const dotenv=require("dotenv");
 const authRoute=require("./routes/auth");
 const usersRoute=require("./routes/user");
+const productsRoute=require("./routes/product");
 
 dotenv.config();                           //dotenv stores all secret keys
 const app=express();                       //app uses express for backend
@@ -15,6 +16,7 @@ mongoose
 app.use(express.json());
 app.use("/shopify/auth",authRoute);
 app.use("/shopify/users",usersRoute);
+app.use("/shopify/products",productsRoute);
 
 
 app.listen(process.env.PORT || 3000,()=>{           //Server Starting process...npm start
